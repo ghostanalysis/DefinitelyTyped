@@ -1,6 +1,7 @@
 // Type definitions for demofile 0.4
 // Project: https://github.com/saul/demofile (Does not have to be to GitHub, but prefer linking to a source code repository rather than to a project website.)
 // Definitions by: William Stewart <https://github.com/zoidbergwill>
+//                 Nic Malan <https://github.com/n1c>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /*~ If this module is a UMD module that exposes a global variable 'myLib' when
