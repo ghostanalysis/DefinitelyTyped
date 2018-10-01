@@ -1,4 +1,4 @@
-// Type definitions for demofile 0.4.20
+// Type definitions for demofile 0.4
 // Project: https://github.com/saul/demofile (Does not have to be to GitHub, but prefer linking to a source code repository rather than to a project website.)
 // Definitions by: William Stewart <https://github.com/zoidbergwill>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -13,26 +13,26 @@ import * as parser from "binary-parser";
 import * as events from "events";
 
 export class DemoHeader extends parser.Parser {
-    public serverName: string;
-    public clientName: string;
-    public mapName: string;
-    public protocol: number;
-    public networkProtocol: number;
-    public playbackTime: number;
-    public playbackTicks: number;
-    public playbackFrames: number;
-    public signonLength: number;
+    serverName: string;
+    clientName: string;
+    mapName: string;
+    protocol: number;
+    networkProtocol: number;
+    playbackTime: number;
+    playbackTicks: number;
+    playbackFrames: number;
+    signonLength: number;
 }
 
 export class BaseEntity extends events.EventEmitter {
-    public props: any;
-    public teamNumber: number;
+    props: any;
+    teamNumber: number;
 }
 
 export class GameRules extends BaseEntity {
-    public isWarmup(): void;
-    public phase: string;
-    public roundsPlayed: number;
+    isWarmup(): void;
+    phase: string;
+    roundsPlayed: number;
 }
 
 export class GameEvents extends events.EventEmitter {
@@ -41,90 +41,90 @@ export class GameEvents extends events.EventEmitter {
 export class userMessages extends events.EventEmitter {
 }
 
-interface Position {
+export interface Position {
     x: number;
     y: number;
     z: number;
 }
 
-interface EyeAngles {
+export interface EyeAngles {
     pitch: number;
     yaw: number;
 }
 
 export class Weapon extends BaseEntity {
-    public className: string;
-    public itemName: string;
+    className: string;
+    itemName: string;
 }
 
 export class Player extends BaseEntity {
-    public hasSpotted(entity: any): boolean;
+    hasSpotted(entity: any): boolean;
 
-    public account: number;
-    public armor: number;
-    public assists: number;
-    public cashSpendThisRound: number;
-    public cashSpendTotal: number;
-    public clanTag: string;
-    public currentEquipmentValue: number;
-    public deaths: number;
-    public eyeAngles: EyeAngles;
-    public flashDuration: number;
-    public freezeTimeEndEquipmentValue: number;
-    public hasC4: boolean;
-    public hasDefuser: boolean;
-    public hasHelmet: boolean;
-    public health: number;
-    public isAlive: boolean;
-    public isDefusing: boolean;
-    public isFakePlayer: boolean;
-    public isHltv: boolean;
-    public isInBombZone: boolean;
-    public isInBuyZone: boolean;
-    public isScoped: boolean;
-    public isSpotted: boolean;
-    public isWalking: boolean;
-    public kills: number;
-    public mvps: number;
-    public name: string;
-    public placeName: string;
-    public position: Position;
-    public roundStartEquipmentValue: number;
-    public score: number;
-    public steamId: string;
-    public steam64Id: string;
-    public userId: number;
-    public velocity: Position;
-    public weapon: Weapon | null;
-    public weapons: Weapon[];
+    account: number;
+    armor: number;
+    assists: number;
+    cashSpendThisRound: number;
+    cashSpendTotal: number;
+    clanTag: string;
+    currentEquipmentValue: number;
+    deaths: number;
+    eyeAngles: EyeAngles;
+    flashDuration: number;
+    freezeTimeEndEquipmentValue: number;
+    hasC4: boolean;
+    hasDefuser: boolean;
+    hasHelmet: boolean;
+    health: number;
+    isAlive: boolean;
+    isDefusing: boolean;
+    isFakePlayer: boolean;
+    isHltv: boolean;
+    isInBombZone: boolean;
+    isInBuyZone: boolean;
+    isScoped: boolean;
+    isSpotted: boolean;
+    isWalking: boolean;
+    kills: number;
+    mvps: number;
+    name: string;
+    placeName: string;
+    position: Position;
+    roundStartEquipmentValue: number;
+    score: number;
+    steamId: string;
+    steam64Id: string;
+    userId: number;
+    velocity: Position;
+    weapon: Weapon | null;
+    weapons: Weapon[];
 }
 
 export class Team extends BaseEntity {
-    public clanName: string;
-    public teamName: string;
-    public flagImage: string;
-    public logoImage: string;
-    public score: number;
-    public scoreFirstHalf: number;
-    public scoreSecondHalf: number;
-    public members: Player[];
+    clanName: string;
+    teamName: string;
+    flagImage: string;
+    logoImage: string;
+    score: number;
+    scoreFirstHalf: number;
+    scoreSecondHalf: number;
+    members: Player[];
 }
 
 export class Entities extends events.EventEmitter {
-    public getByUserId(userId: number): Player | undefined;
-    public entities: [any];
+    getByUserId(userId: number): Player | undefined;
+    entities: [any];
 }
 
 export class DemoFile extends events.EventEmitter {
-    public on(event: string | symbol, listener: (...args: any[]) => void): this;
-    public parse(buffer: Buffer): void;
-    public currentTick: number;
-    public currentTime: number;
-    public header: DemoHeader;
-    public entities: Entities;
-    public gameEvents: GameEvents;
-    public gameRules: GameRules | null;
-    public userMessages: userMessages;
-    public players: Player[];
-    public teams: Team[];
+    on(event: string | symbol, listener: (...args: any[]) => void): this;
+    parse(buffer: Buffer): void;
+    currentTick: number;
+    currentTime: number;
+    header: DemoHeader;
+    entities: Entities;
+    gameEvents: GameEvents;
+    gameRules: GameRules | null;
+    userMessages: userMessages;
+    players: Player[];
+    teams: Team[];
 }
